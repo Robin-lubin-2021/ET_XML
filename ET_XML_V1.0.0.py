@@ -71,18 +71,3 @@ for xml_name in xml_name_sum:
                         print("{} is not in MANUFACTORS.xml".format(manu_shortname1))
             tree.write("{}\\{}".format(xml_path, xml_name))
 manu_tree.write("{}\MANUFACTORS.xml".format(xml_path))
-"""
-tree = ET.parse("G:\WD SmartWare.swstor\Study\SIE.3LD2022-0TK11.part.xml")
-root = tree.getroot()
-print(root.tag, root.attrib)
-for child in root:
-    print(child.tag)
-property1 = child.get("P_ARTICLE_PARTNR")
-print(property1)
-property2 = child.get("P_ARTICLE_DESCR1")
-print(property2)
-child.set("P_ARTICLE_DESCR1", "en_US@3LD switch disconnector, main switch(inquired price without tax")
-child.set("P_ARTICLE_PURCHASEPRICE_1","100")
-tree.write("G:\WD SmartWare.swstor\Study\SIE.3LD2022-0TK11.part.xml")
-"""
-    
