@@ -2,6 +2,7 @@
 import xml.etree.ElementTree as ET
 # 输入os模块
 import os
+# 输入re模块
 import re
 import openpyxl
 xml_path = "L:C:\\Users\\LUBIN\\Desktop\\Data Portal Test"
