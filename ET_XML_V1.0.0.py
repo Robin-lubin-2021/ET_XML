@@ -1,3 +1,4 @@
+# 输入xml.etree.ElementTree模块并重命名为ET
 import xml.etree.ElementTree as ET
 import os
 import re
