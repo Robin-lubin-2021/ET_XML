@@ -1,7 +1,10 @@
+#输入xml.etree.ElementTree模块并定义别名为ET,用于操作XML文件
 import xml.etree.ElementTree as ET
-#输入模块os
+#输入模块os，用于操作系统目录及文件
 import os
+#输入模块re，用于操作正则表达式
 import re
+#输入openpyxl,用于操作xlsx文件
 import openpyxl
 xml_path = "L:C:\\Users\\LUBIN\\Desktop\\Data Portal Test"
 xml_name_sum = os.listdir(xml_path)
