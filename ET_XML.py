@@ -23,11 +23,18 @@ for xml_name in xml_name_sum:
             for child in root:
                 #print(child.tag)
                 part_number_xml = child.get("P_ARTICLE_PARTNR")
-                type_number_xml = child.get("P_ARTICLE_TYPENR")
-                #print(type_number_xml)
                 if part_number_xml is not None:
                     #print(part_number_xml)
-                    manu_shortname1 = child.get("P_ARTICLE_MANUFACTURER")
+                    re_com1 = re.compile("\..+$")
+                    type_number_xml = re_com1.search(part_number_xml).group()
+                    type_number_xml = type_number_xml[1:len(type_number_xml)+1]
+                    #type_number_xml = child.get("P_ARTICLE_TYPENR")
+                    #print(type_number_xml)
+                    re_com11 = re.compile("^[\w]+[-]*[\w]+\.")
+                    type_shortname_match = re_com11.match(part_number_xml)
+                    type_shortname = type_shortname_match.group()
+                    #print(type_shortname)
+                    manu_shortname1 = type_shortname[:len(type_shortname)-1]
                     #print(manu_shortname1, end = ' ')
                     for manu_child in manu_root:
                             manu_shortname2 = manu_child.get("P_PART_ADDRESS_SHORTNAME") 
