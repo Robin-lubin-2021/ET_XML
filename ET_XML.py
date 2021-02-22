@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import os
 import re
 import openpyxl
-xml_path = "L:C:\\Users\\LUBIN\\Desktop\\Data Portal Test"
+xml_path = "C:\\Users\\LUBIN\\Desktop\\Data Portal Test"
 xml_name_sum = os.listdir(xml_path)
 #print(xml_name_summ)
 manu_tree = ET.parse("{}\MANUFACTORS.xml".format(xml_path))  
@@ -23,13 +23,11 @@ for xml_name in xml_name_sum:
             for child in root:
                 #print(child.tag)
                 part_number_xml = child.get("P_ARTICLE_PARTNR")
+                type_number_xml = child.get("P_ARTICLE_TYPENR")
+                #print(type_number_xml)
                 if part_number_xml is not None:
                     #print(part_number_xml)
-                    re_com1 = re.compile("^[\w]+[-]*[\w]+\.")
-                    type_shortname_match = re_com1.match(part_number_xml)
-                    type_shortname = type_shortname_match.group()
-                    #print(type_shortname)
-                    manu_shortname1 = type_shortname[:len(type_shortname)-1]
+                    manu_shortname1 = child.get("P_ARTICLE_MANUFACTURER")
                     #print(manu_shortname1, end = ' ')
                     for manu_child in manu_root:
                             manu_shortname2 = manu_child.get("P_PART_ADDRESS_SHORTNAME") 
@@ -38,8 +36,6 @@ for xml_name in xml_name_sum:
                                 manu_longname = manu_child.get("P_PART_ADDRESS_LONGNAME")
                                 #print(manu_longname)
                                 wb = openpyxl.load_workbook("{}\\{}.xlsx".format(xlsx_path, manu_longname))
-                                type_number_xml = child.get("P_ARTICLE_TYPENR")
-                                #print(type_number_xml)
                                 sh = wb["Sheet1"]
                                 for i in range(sh.min_row, sh.max_row):
                                     type_value_xlsx = sh.cell(row = i, column = 4).value
