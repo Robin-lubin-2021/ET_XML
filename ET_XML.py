@@ -18,8 +18,6 @@ for xml_name in xml_name_sum:
             tree = ET.parse("{}\\{}".format(xml_path, xml_name))
             root = tree.getroot()
             #print(root.tag, root.attrib)
-            #root.set("count", "1")
-            #root.set("build", "136.22")
             for child in root:
                 #print(child.tag)
                 part_number_xml = child.get("P_ARTICLE_PARTNR")
@@ -30,8 +28,8 @@ for xml_name in xml_name_sum:
                     type_number_xml = type_number_xml[1:len(type_number_xml)+1]
                     #type_number_xml = child.get("P_ARTICLE_TYPENR")
                     #print(type_number_xml)
-                    re_com11 = re.compile("^[\w]+[-]*[\w]+\.")
-                    type_shortname_match = re_com11.match(part_number_xml)
+                    re_com2 = re.compile("^[\w]+[-]*[\w]+\.")
+                    type_shortname_match = re_com2.match(part_number_xml)
                     type_shortname = type_shortname_match.group()
                     #print(type_shortname)
                     manu_shortname1 = type_shortname[:len(type_shortname)-1]
@@ -51,19 +49,14 @@ for xml_name in xml_name_sum:
                                         price_value_xlsx = round(sh.cell(row = i, column = 8).value, 2)
                                         #print((price_value_xlsx))
                                         child.set("P_ARTICLE_PURCHASEPRICE_1", str(price_value_xlsx))
+                                        sh.cell(row = i, column = 9).value = "(inquired price without tax)"
                                         part_descr1_xml = child.get("P_ARTICLE_DESCR1")
                                         if part_descr1_xml is not None:
                                             #print(part_descr1_xml)
-                                            re_com2 = re.compile("(已询未税价)")
-                                            if re_com2.search(part_descr1_xml) is not None:
-                                                #print(re_com2.search(part_descr1_xml).group())
-                                                part_descr1_xml = re_com2.sub("inquired price without tax", part_descr1_xml)
-                                            """
-                                            re_com3 = re.compile("es_ES@")
+                                            re_com3 = re.compile("(已询未税价)")
                                             if re_com3.search(part_descr1_xml) is not None:
                                                 #print(re_com3.search(part_descr1_xml).group())
-                                                part_descr1_xml = re_com3.sub("??_??@", part_descr1_xml)
-                                            """
+                                                part_descr1_xml = re_com3.sub("inquired price without tax", part_descr1_xml)
                                         child.set("P_ARTICLE_DESCR1", part_descr1_xml)  
                                         break
                                 else:
@@ -74,18 +67,5 @@ for xml_name in xml_name_sum:
                         print("{} is not in MANUFACTORS.xml".format(manu_shortname1))
             tree.write("{}\\{}".format(xml_path, xml_name))
 manu_tree.write("{}\MANUFACTORS.xml".format(xml_path))
-"""
-tree = ET.parse("G:\WD SmartWare.swstor\Study\SIE.3LD2022-0TK11.part.xml")
-root = tree.getroot()
-print(root.tag, root.attrib)
-for child in root:
-    print(child.tag)
-property1 = child.get("P_ARTICLE_PARTNR")
-print(property1)
-property2 = child.get("P_ARTICLE_DESCR1")
-print(property2)
-child.set("P_ARTICLE_DESCR1", "en_US@3LD switch disconnector, main switch(inquired price without tax")
-child.set("P_ARTICLE_PURCHASEPRICE_1","100")
-tree.write("G:\WD SmartWare.swstor\Study\SIE.3LD2022-0TK11.part.xml")
-"""
+
     
