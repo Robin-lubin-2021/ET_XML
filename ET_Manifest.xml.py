@@ -1,11 +1,16 @@
 import xml.etree.ElementTree as ET # 输入xml.etree.ElementTree模块，绑定到变量ET。
 import os       # 输入os模块
 import shutil   # 输入shutil模块
+import sys
 
-XmlFilePath = r"E:\Eaton\manifest.xml" # 需要解析的xml文档路径的常量
+
+
+XmlFilePath = r"{}".format(sys.argv[1]) # 需要解析的xml文档路径的常量
+print(XmlFilePath)
 FileRoot = os.path.dirname(XmlFilePath) # 取manifest.xml所在目录
 
-DestPathRoot = r"L:\Eplan P8\Data"   # 目标路径的根目录
+DestPathRoot = r"{}".format(sys.argv[2])   # 目标路径的根目录
+print(DestPathRoot)
 DestPathDir = {"partxml": "XML", "document": "Documents", "macro": "Macros", "picture": "Images","gmacro": "Images"}   # 源路径和目录路径中部分文件夹映射字典
 
 tree = ET.parse(XmlFilePath)  # 读取路径中xml文件的树结构

@@ -7,13 +7,13 @@ import re
 #输入openpyxl模块，用于操作xlsx文件。
 import openpyxl
 
-xml_path = "C:\\Users\\LUBIN\\Desktop\\Data Portal Test"
+xml_path = r"{}".format(sys.argv[1])
 xml_name_sum = os.listdir(xml_path)
 #print(xml_name_summ)
 manu_tree = ET.parse("{}\MANUFACTORS.xml".format(xml_path))  
 manu_root  = manu_tree.getroot()
 #print(manu_root.tag, manu_root.attrib)
-xlsx_path = "C:\\Users\\LUBIN\\Desktop\\xlsx_test"
+xlsx_path = r"{}".format(sys.argv[2])
 xlsx_name_sum = os.listdir(xlsx_path)
 for xml_name in xml_name_sum:
         re_com0 = re.compile("\.xml$")
