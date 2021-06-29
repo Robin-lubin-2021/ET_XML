@@ -11,7 +11,7 @@ FileRoot = os.path.dirname(XmlFilePath) # 取manifest.xml所在目录
 
 DestPathRoot = r"{}".format(sys.argv[2])   # 目标路径的根目录
 print(DestPathRoot)
-DestPathDir = {"partxml": "XML", "document": "Documents", "macro": "Macros", "picture": "Images","gmacro": "Images"}   # 源路径和目录路径中部分文件夹映射字典
+DestPathDir = {"partxml": "XML", "document": "Documents", "macro": "Macros", "picture": "Images","gmacro": "Images","contour": "Macros"}   # 源路径和目录路径中部分文件夹映射字典
 
 tree = ET.parse(XmlFilePath)  # 读取路径中xml文件的树结构
 root = tree.getroot()   # 读取树结构的根节点
