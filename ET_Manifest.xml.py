@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET # 输入xml.etree.ElementTree模块，绑定到变量ET。
 import os       # 输入os模块
 import shutil   # 输入shutil模块
-import sys
+import sys # 输入sys模块
 
 
 
