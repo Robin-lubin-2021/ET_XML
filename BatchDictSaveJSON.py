@@ -161,7 +161,7 @@ ManufMapping = {
                }
 
 #with语句打开json文件，加装字典列表数据
-with open('/home/lubin/python/test_xml.etree.ElementTree/source.json', 'r', encoding = 'utf-8') as f:
+with open('/home/lubin/Python/source.json', 'r', encoding = 'utf-8') as f:
     SourceData = json.load(f)
 
 #初始化存储字典数据类型的列表
@@ -185,5 +185,5 @@ for x in SourceData:
     ListData.append(TempLib)
 
 #dump将ListData列表保存至data.json模板文件
-with open('/home/lubin/python/test_xml.etree.ElementTree/data.json', 'w', encoding = 'utf-8') as f:
+with open('/home/lubin/Python/data.json', 'w', encoding = 'utf-8') as f:
     json.dump(ListData, f, indent = 4)

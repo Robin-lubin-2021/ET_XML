@@ -8,7 +8,7 @@ import json
 import xml.etree.ElementTree as ET
 
 #with语句打开json文件，加装字典列表数据
-with open('data.json', 'r', encoding = 'utf-8') as f:
+with open('/home/lubin/Python/data.json', 'r', encoding = 'utf-8') as f:
     data = json.load(f)
     
 #从字典列表循环读取part的属性字典并创建XML文件
