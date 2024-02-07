@@ -60,7 +60,7 @@ ManufMapping = {
                'Eckold GmbH & Co. KG':'ECKO',
                'FerRobotics GmbH':'FERO',
                'FRONIUS Deutschland GmbH':'FRON',
-               'GSEE TECH':'GESS',
+               'GSEE TECH':'GSEE',
                'GOM GmbH':'GOM',
                'Hager':'HAG',
                'HIGHYAG Lasertechnologie GmbH':'HIYA',
