@@ -55,6 +55,7 @@ ManufMapping = {
                'Allen-Bradley (IEC Data)':'A-B',
                'Atlas Copco IAS GmbH':'ATCO',
                'Beckhoff Automation GmbH & Co. KG':'BEC',
+               'Belden':'BEL',
                'Binzel-Abicor':'BINZ',
                'Eckold GmbH & Co. KG':'ECKO',
                'FerRobotics GmbH':'FERO',
